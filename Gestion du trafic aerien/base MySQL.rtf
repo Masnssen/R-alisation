@@ -1,0 +1,476 @@
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+--
+-- Host: localhost    Database: projet
+-- ------------------------------------------------------
+-- Server version	8.0.20
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+create database projet ;
+--
+-- Table structure for table `aeronef`
+--
+
+DROP TABLE IF EXISTS `aeronef`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `aeronef` (
+  `Mat` varchar(20) NOT NULL,
+  `NOMCONST` varchar(20) NOT NULL,
+  `TYPEAERONEF` varchar(20) NOT NULL,
+  `CAPACITE` int NOT NULL,
+  `IDCOMAGNIE` varchar(6) NOT NULL,
+  `FRETAERONEF` double NOT NULL,
+  `POIDS` double NOT NULL,
+  PRIMARY KEY (`Mat`),
+  KEY `IDCOMAGNIE` (`IDCOMAGNIE`),
+  CONSTRAINT `aeronef_ibfk_1` FOREIGN KEY (`IDCOMAGNIE`) REFERENCES `compagnie` (`IDCOMPAGNIE`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aeronef`
+--
+
+LOCK TABLES `aeronef` WRITE;
+/*!40000 ALTER TABLE `aeronef` DISABLE KEYS */;
+INSERT INTO `aeronef` VALUES ('mat1','tesla','SPORT',1500,'aeron1',50,84),('mat2','tesla','SERVICES_DIVERS',6000,'aeron3',50,15000000),('mat3','ddsfsdf','SERVICES_DIVERS',6000,'aero5',50,15000000),('mat4','ddsfsdf','USAGE_MILITAIRE',6000,'aeron2',50,15000000);
+/*!40000 ALTER TABLE `aeronef` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `aeroport`
+--
+
+DROP TABLE IF EXISTS `aeroport`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `aeroport` (
+  `idAeroport` varchar(4) NOT NULL,
+  `NOMAEROPORT` varchar(20) NOT NULL,
+  `PAYS` varchar(20) NOT NULL,
+  PRIMARY KEY (`idAeroport`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aeroport`
+--
+
+LOCK TABLES `aeroport` WRITE;
+/*!40000 ALTER TABLE `aeroport` DISABLE KEYS */;
+INSERT INTO `aeroport` VALUES ('AZER','Houari boumediene','ALGERIE'),('bfgh','Brussels Airpor','Belgique'),('cvbn','Orly','France'),('DAAE','BEJAIA','ALGERIE'),('klmd','Charle dogole','France');
+/*!40000 ALTER TABLE `aeroport` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `attribution`
+--
+
+DROP TABLE IF EXISTS `attribution`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `attribution` (
+  `idAttribution` int NOT NULL AUTO_INCREMENT,
+  `idMembre` int NOT NULL,
+  `Fonction` varchar(20) NOT NULL,
+  `dat` date NOT NULL,
+  PRIMARY KEY (`idAttribution`),
+  KEY `idMembre` (`idMembre`),
+  CONSTRAINT `attribution_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membre` (`IDMEMBRE`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attribution`
+--
+
+LOCK TABLES `attribution` WRITE;
+/*!40000 ALTER TABLE `attribution` DISABLE KEYS */;
+INSERT INTO `attribution` VALUES (8,10,'PILOTE','2020-09-23'),(9,13,'COMMANDANT_DE_BORD','2020-09-30'),(10,14,'COPILOTE','2020-09-17'),(11,15,'STEWARDS','2020-09-17');
+/*!40000 ALTER TABLE `attribution` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `compagnie`
+--
+
+DROP TABLE IF EXISTS `compagnie`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `compagnie` (
+  `IDCOMPAGNIE` varchar(6) NOT NULL,
+  `NOMCOMPAGNIE` varchar(20) NOT NULL,
+  `SITE` varchar(20) NOT NULL,
+  `EMAIL` varchar(20) NOT NULL,
+  `NUMTEL` int NOT NULL,
+  PRIMARY KEY (`IDCOMPAGNIE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `compagnie`
+--
+
+LOCK TABLES `compagnie` WRITE;
+/*!40000 ALTER TABLE `compagnie` DISABLE KEYS */;
+INSERT INTO `compagnie` VALUES ('aero5','tesla','aeron5899.com','aeron2652@gmail.com',55926),('aeron1','airbus','aeron1.com','aeron1@gmail.com',526952),('aeron2','renaut','aeron5.com','aeron2@gmail.com',526952),('aeron3','tesla','aeron25.com','aeron25@gmail.com',55555);
+/*!40000 ALTER TABLE `compagnie` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `demandevol`
+--
+
+DROP TABLE IF EXISTS `demandevol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `demandevol` (
+  `idDemande` int NOT NULL AUTO_INCREMENT,
+  `idvol` varchar(20) DEFAULT NULL,
+  `date` date NOT NULL,
+  `durree` double NOT NULL,
+  `accorder` varchar(20) NOT NULL DEFAULT '1',
+  `type` varchar(20) NOT NULL,
+  `IDPISTE` int unsigned NOT NULL,
+  `heure` time NOT NULL,
+  PRIMARY KEY (`idDemande`),
+  KEY `idVol` (`idvol`),
+  KEY `demandevol_ibfk_1` (`IDPISTE`),
+  CONSTRAINT `demandevol_ibfk_1` FOREIGN KEY (`IDPISTE`) REFERENCES `piste` (`IDPISTE`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `demandevol_ibfk_2` FOREIGN KEY (`IDPISTE`) REFERENCES `piste` (`IDPISTE`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `demandevol`
+--
+
+LOCK TABLES `demandevol` WRITE;
+/*!40000 ALTER TABLE `demandevol` DISABLE KEYS */;
+INSERT INTO `demandevol` VALUES (30,'aero53009202','2020-09-30',15,'true','DECOLLAGE',41,'21:20:00');
+/*!40000 ALTER TABLE `demandevol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `equip_membree`
+--
+
+DROP TABLE IF EXISTS `equip_membree`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `equip_membree` (
+  `idMembre` int NOT NULL,
+  `idEquipage` int NOT NULL,
+  PRIMARY KEY (`idMembre`,`idEquipage`),
+  KEY `idEquipage` (`idEquipage`),
+  CONSTRAINT `equip_membree_ibfk_2` FOREIGN KEY (`idMembre`) REFERENCES `membre` (`IDMEMBRE`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equip_membree`
+--
+
+LOCK TABLES `equip_membree` WRITE;
+/*!40000 ALTER TABLE `equip_membree` DISABLE KEYS */;
+INSERT INTO `equip_membree` VALUES (10,10),(11,11),(12,12),(10,13),(14,13),(10,14);
+/*!40000 ALTER TABLE `equip_membree` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `equippage`
+--
+
+DROP TABLE IF EXISTS `equippage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `equippage` (
+  `idEquippage` int NOT NULL AUTO_INCREMENT,
+  `libellerEquippage` text NOT NULL,
+  PRIMARY KEY (`idEquippage`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equippage`
+--
+
+LOCK TABLES `equippage` WRITE;
+/*!40000 ALTER TABLE `equippage` DISABLE KEYS */;
+INSERT INTO `equippage` VALUES (10,'equi1'),(11,'equi2'),(12,'equip3'),(13,'equip4'),(14,'equip5'),(15,'equip6'),(16,'equi8');
+/*!40000 ALTER TABLE `equippage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `listenoir`
+--
+
+DROP TABLE IF EXISTS `listenoir`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `listenoir` (
+  `idAeroneff` varchar(20) NOT NULL,
+  PRIMARY KEY (`idAeroneff`),
+  CONSTRAINT `listenoir_ibfk_1` FOREIGN KEY (`idAeroneff`) REFERENCES `aeronef` (`Mat`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `listenoir`
+--
+
+LOCK TABLES `listenoir` WRITE;
+/*!40000 ALTER TABLE `listenoir` DISABLE KEYS */;
+INSERT INTO `listenoir` VALUES ('mat1'),('mat2');
+/*!40000 ALTER TABLE `listenoir` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `membre`
+--
+
+DROP TABLE IF EXISTS `membre`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `membre` (
+  `IDMEMBRE` int NOT NULL AUTO_INCREMENT,
+  `NOMMEMBRE` varchar(20) NOT NULL,
+  `NBHEUREVOL` int NOT NULL,
+  PRIMARY KEY (`IDMEMBRE`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `membre`
+--
+
+LOCK TABLES `membre` WRITE;
+/*!40000 ALTER TABLE `membre` DISABLE KEYS */;
+INSERT INTO `membre` VALUES (10,'massp',50),(11,'mazigh',0),(12,'sypphax',20),(13,'aimad',20),(14,'amezwau',20),(15,'wissin',26);
+/*!40000 ALTER TABLE `membre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `piste`
+--
+
+DROP TABLE IF EXISTS `piste`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `piste` (
+  `IDPISTE` int unsigned NOT NULL AUTO_INCREMENT,
+  `LONGEUR` double NOT NULL,
+  `idAeroport` varchar(4) NOT NULL,
+  PRIMARY KEY (`IDPISTE`),
+  KEY `idAeroport` (`idAeroport`),
+  CONSTRAINT `piste_ibfk_1` FOREIGN KEY (`idAeroport`) REFERENCES `aeroport` (`idAeroport`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `piste`
+--
+
+LOCK TABLES `piste` WRITE;
+/*!40000 ALTER TABLE `piste` DISABLE KEYS */;
+INSERT INTO `piste` VALUES (41,50,'DAAE'),(42,70,'DAAE'),(43,450,'DAAE'),(44,1450,'DAAE'),(45,1000,'DAAE'),(46,2000,'DAAE'),(47,4500,'DAAE'),(48,8000,'DAAE'),(49,4530,'DAAE');
+/*!40000 ALTER TABLE `piste` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pistedegager`
+--
+
+DROP TABLE IF EXISTS `pistedegager`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pistedegager` (
+  `idpistedegager` int unsigned NOT NULL AUTO_INCREMENT,
+  `idpiste` int unsigned DEFAULT NULL,
+  PRIMARY KEY (`idpistedegager`),
+  KEY `idpistee_idx` (`idpiste`),
+  CONSTRAINT `idpistee` FOREIGN KEY (`idpiste`) REFERENCES `piste` (`IDPISTE`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pistedegager`
+--
+
+LOCK TABLES `pistedegager` WRITE;
+/*!40000 ALTER TABLE `pistedegager` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pistedegager` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pistereserver`
+--
+
+DROP TABLE IF EXISTS `pistereserver`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pistereserver` (
+  `idpistereserver` int unsigned NOT NULL AUTO_INCREMENT,
+  `idpiste` int unsigned NOT NULL,
+  `date` date NOT NULL,
+  `heure` time NOT NULL,
+  PRIMARY KEY (`idpistereserver`),
+  KEY `piste_idx` (`idpiste`),
+  CONSTRAINT `piste` FOREIGN KEY (`idpiste`) REFERENCES `piste` (`IDPISTE`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pistereserver`
+--
+
+LOCK TABLES `pistereserver` WRITE;
+/*!40000 ALTER TABLE `pistereserver` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pistereserver` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `redevance`
+--
+
+DROP TABLE IF EXISTS `redevance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `redevance` (
+  `idRedevance` int NOT NULL AUTO_INCREMENT,
+  `idvol` varchar(20) DEFAULT NULL,
+  `prix` double NOT NULL,
+  `payer` tinyint(1) DEFAULT NULL,
+  `datePayement` date DEFAULT NULL,
+  `compagnie` varchar(6) NOT NULL,
+  PRIMARY KEY (`idRedevance`),
+  KEY `compagnie` (`compagnie`),
+  KEY `idVol` (`idvol`),
+  CONSTRAINT `redevance_ibfk_1` FOREIGN KEY (`idvol`) REFERENCES `vol` (`idVol`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `redevance`
+--
+
+LOCK TABLES `redevance` WRITE;
+/*!40000 ALTER TABLE `redevance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `redevance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `utilisateur` (
+  `IDUTILISATEUR` int NOT NULL AUTO_INCREMENT,
+  `PSEUDO` varchar(20) NOT NULL,
+  `MOTDEPASSE` varchar(15) NOT NULL,
+  `NOM` varchar(20) NOT NULL,
+  `PRENOM` varchar(20) NOT NULL,
+  `POSTE` varchar(40) NOT NULL,
+  PRIMARY KEY (`IDUTILISATEUR`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `utilisateur`
+--
+
+LOCK TABLES `utilisateur` WRITE;
+/*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
+INSERT INTO `utilisateur` VALUES (26,'syphax','syphax','barache','syphax','CONTROLEUR_AERIEN'),(27,'massi','massi','tighilt','massinissa','INGENIEUR_PREPARATEUR_DE_VOL'),(28,'aimad','aimad','boutnarte','aimad','COORDINATEUR_DE_VOL'),(29,'mayas','mayas','saidi','mayas','RESPONSABLE_D_EXPLOITATION_AEROPORTUAIRE'),(30,'massi','massi','chalall','massi','INGENIEUR_OPERATION_DE_VOL'),(31,'idir','idir','idir','idir','INGENIEUR_SECURITE_AERIEN'),(32,'sabrina','sabrina','sabrina','sabrina','ANALYSTE_DE_VOL');
+/*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vol`
+--
+
+DROP TABLE IF EXISTS `vol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vol` (
+  `idVol` varchar(15) NOT NULL,
+  `dateDep` date NOT NULL,
+  `dateArriver` date NOT NULL,
+  `idAeroportDep` varchar(4) NOT NULL,
+  `idAeroportArriver` varchar(4) NOT NULL,
+  `nbEscale` int NOT NULL,
+  `nbPassager` int NOT NULL,
+  `freVol` double NOT NULL,
+  `idCompagnie` varchar(6) NOT NULL,
+  `idEquipage` int NOT NULL,
+  `TypeVol` varchar(20) NOT NULL,
+  `idAeronef` varchar(20) NOT NULL,
+  `HEUREDEPART` time NOT NULL,
+  `HEUREARRIVER` time NOT NULL,
+  `distance` double NOT NULL,
+  PRIMARY KEY (`idVol`),
+  KEY `idAeronef` (`idAeronef`),
+  KEY `vol_ibfk_2` (`idAeroportArriver`),
+  KEY `vol_ibfk_3` (`idAeroportDep`),
+  KEY `vol_ibfk_4` (`idCompagnie`),
+  KEY `vol_ibfk_5` (`idEquipage`),
+  CONSTRAINT `vol_ibfk_5` FOREIGN KEY (`idEquipage`) REFERENCES `equippage` (`idEquippage`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vol`
+--
+
+LOCK TABLES `vol` WRITE;
+/*!40000 ALTER TABLE `vol` DISABLE KEYS */;
+INSERT INTO `vol` VALUES ('aero53009201','2020-09-30','2020-09-30','AZER','bfgh',0,120,500,'aero5',11,'COMMERCIAL_regulier','mat1','19:54:00','22:00:00',500),('aero53009202','2020-09-30','2020-09-30','DAAE','AZER',0,130,500,'aero5',14,'GOUVERNEMENTAL','mat4','20:20:00','22:00:00',150),('aeron23009201','2020-09-30','2020-09-30','AZER','bfgh',0,130,6055,'aeron2',11,'NON_COMMERCIAL','mat4','20:00:00','22:00:00',225);
+/*!40000 ALTER TABLE `vol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `volencour`
+--
+
+DROP TABLE IF EXISTS `volencour`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `volencour` (
+  `idvol` varchar(15) NOT NULL,
+  `typeVolEncour` varchar(20) NOT NULL,
+  KEY `idvol` (`idvol`),
+  CONSTRAINT `volencour_ibfk_1` FOREIGN KEY (`idvol`) REFERENCES `vol` (`idVol`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `volencour`
+--
+
+LOCK TABLES `volencour` WRITE;
+/*!40000 ALTER TABLE `volencour` DISABLE KEYS */;
+/*!40000 ALTER TABLE `volencour` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-09-30 20:13:12

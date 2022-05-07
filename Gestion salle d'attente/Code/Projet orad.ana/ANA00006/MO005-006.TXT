@@ -1,0 +1,3 @@
+//MO005-006.TXT ANA00005 TO ANA00006
+Statistique		TAR	26	nouvelle taille enregistrement : 26
+Statistique	date	RUB-		la rubrique date est supprimée

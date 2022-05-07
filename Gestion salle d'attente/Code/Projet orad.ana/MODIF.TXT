@@ -1,0 +1,4 @@
+//MO009-010.TXT ANA00009 TO ANA00010
+Patient		FCNX+	Connexion HFSQL Classic	
+Statistique		FCNX+	Connexion HFSQL Classic	
+Connexion HFSQL Classic		CNX+		

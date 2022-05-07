@@ -1,0 +1,3 @@
+//MO007-008.TXT ANA00007 TO ANA00008
+Statistique		TAR	68	nouvelle taille enregistrement : 68
+Statistique	IDStatistique	CNW	Chaîne$Date (aaaammjj)	la rubrique IDStatistique a pour nouveau type Chaîne

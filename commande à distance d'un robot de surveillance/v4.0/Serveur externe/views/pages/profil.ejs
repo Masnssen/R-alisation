@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/profil.css">
+
+		<meta charset="utf-8">
+		<title>Gestion du profile</title>
+	</head>
+
+	<body>
+
+		 <nav>
+            <a id='principale'><button id="princ">Accueil</button></a>
+            <a id='manipulation'><button id="princ">Manipulation</button></a>
+            <a id='deconnection' href="/"><button id="princ">Deconnexion</button></a>
+
+        </nav>
+
+		<form id="form">
+
+			
+			<div id="first">
+
+				<img src="/images/index.png">
+				
+				<label for="pseudo">Pseudo : </label>
+				<input id="pseudo" type="text" name="pseudo" required="true">
+
+				<br>
+
+				<label for="id">ID : </label>
+				<input id="id" type="text" name="id" disabled="true">
+
+
+				<input type="text" name="type" id="type">
+
+			</div>
+				
+
+			<fieldset>
+				
+				<legend>A propos de moi</legend>
+
+				<div class="memeLigne">
+					
+					<label for="nom">Nom :<input id="nom" type="text" name="nom" required="true"></label>
+
+					<label for="prenom">Prénom : <input id="prenom" type="text" name="prenom" required="true"></label>
+					
+				</div>
+				
+				
+
+				<div class="memeLigne">
+					<label for="sexe">Sexe : 
+						<br>
+						<select id="sexe" name="sexe">
+							<option value="M">Masculin</option>
+							<option value="F">Féminin</option>  
+						</select>
+					</label>
+					
+				
+					<label for="dateNaissance">Date de naisssance : 
+						<input id="dateNaissance" type="date" name="dateNaissance">
+					</label>
+					
+				</div>
+
+				<div class="memeLigne">
+					
+					<label for="email">Email : <input id="email" type="text" name="email"></label>
+
+					<label for="tel">Tel : <input id="tel" type="tel" name="tel" value=""></label>
+					
+				</div>
+				
+			</fieldset>
+
+
+			<fieldset>
+				<legend>Mot de passe</legend>
+
+				<input id = "changePassword" type="checkbox" name="changer">
+				<label>Changer mot de passe</label>
+				<br>
+
+				<label for="password">Ancien mot de passe :</label>
+				<input id="password" type="password" name="password" value="" required="true">
+				<br>
+
+				<label for="newPassword">Nouveau mot de passe : </label>
+				<input id="newPassword" type="password" name="newPassword" disabled>
+				<br>
+				<label for="confirmePassword">Confirmer le mot de passe : </label>
+				<input id="confirmePassword" type="password" name="confirmePassword" disabled>
+
+			</fieldset>
+
+
+			<input type="submit" id="sauvegarder" name="sauvegarder" value="Sauvegarder">
+
+			 <div id="indication">
+            	<p id="indicationText"> </p>
+       		 </div>
+		</form>
+
+		
+
+		<script type="text/javascript">
+			var user = <%-user%>;
+			var message = <%-message%>;
+		</script>
+
+		<script type="text/javascript" src="/js/profil.js"></script>
+	</body>	
+</html>

@@ -1,0 +1,40 @@
+<!-- views/pages/authentification.ejs -->
+
+<!doctype html>
+
+<html>
+	
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="/css/styleAuthentification.css"/>
+		<meta charset="utf-8"/>
+		<title>Authentification</title>
+
+	</head>
+
+	<body>
+
+
+			<form method="post" action="/login" id="formulaire">
+
+				<h1>Authentification</h1>
+
+				<input type="text" name="pseudo" class="champs" placeholder="Pseudo" required/>
+				<p class="err"> <%=pseudo%> </p> 
+				<br/>
+
+
+				<input type="password" name="password" placeholder="password" class="champs" required/>
+				<p class="err"> <%=password%> </p>
+				<br/>
+
+				<input type="submit" name="button" id="submit" value="Connexion" />
+
+			</form>
+			
+		
+
+
+	</body> 
+
+</html>

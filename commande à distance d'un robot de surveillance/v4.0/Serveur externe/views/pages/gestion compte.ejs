@@ -1,0 +1,125 @@
+
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+		<link rel="stylesheet" type="text/css" href="/css/compte.css">   
+    	<meta charset="utf-8">
+    	<title>Gestion des comptes</title>
+
+        
+
+    </head>
+    
+    <body>
+
+
+        <nav>
+            <a id='principale'><button id="princ">Accueil</button></a>
+            <a id='profil'><button id="princ">Gestion du profil</button></a>
+            <a id='manipulation'><button id="princ">Manipulation</button></a>
+            <a id='deconnection' href="/"><button id="princ">Deconnexion</button></a>
+
+        </nav>
+    	
+    	<section id="utilisateurs">
+
+
+    		<div id="table">
+          
+                <table id="tableaux">
+                    <tr><th>ID</th> <th>Nom</th> <th>Prénom</th> <th>Pseudo</th> <th>Mot de passe</th></tr>
+                </table>
+
+            </div>
+
+            <button id="nouveau" class="button">Nouveau</button>
+            <a id="supprimer"><button id="sup" class="button">Supprimer</button></a>
+           
+
+    	</section>
+        
+        
+        	
+        <form id="form">
+
+            <fieldset>
+                
+                <legend>Nouveau utilisateur | modification</legend>
+
+                <input id="idActuel" type="text" name="idActuel" value="" />
+
+                <div class="memeLigne">
+                    <label for="nom">Nom :  <input type="text" name="nom" placeholder="Nom de utilisateur" required="true"></label>
+                     <label for="prenom">Prenom : <input type="text" name="prenom" placeholder="Prenom de utilisateur" required="true"></label>
+                    
+                </div>
+
+                <div class="memeLigne">
+                    <label for="pseudo">Pseudo : <input type="text" name="pseudo" placeholder="Pseudo" required="true"></label>
+                    <label for="password">Mot de passe :  <input type="text" name="password" placeholder="Mot de passe" required="true"></label>
+                   
+                </div>
+
+                <div class="memeLigne">
+                       
+                    <label for="sexe">Sexe :     <select name="sexe">
+                            <option value="M">Homme</option>
+                            <option value="F" >Femme</option>
+                        </select>
+                    </label>
+                    <label for="dateNaissance">Date naissance : <input type="date" name="dateNaissance"> </label>
+                
+                </div>
+
+                
+
+                <div>
+                     <label for="type">Type :</label>
+                    <select name="type" id ="type" >
+                        <option value="1">Administrateur</option>
+                        <option value="0" >simple utilisateur</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="privilege">Privilège :</label>
+                   <select name="privilege"id="privilege">
+                       
+                   </select>
+               </div>
+               
+                <div>
+                    <label for="id">ID : </label>
+                    <input type="text" name="id" value="Id de l'utilisateur">
+                </div>
+
+                
+
+            </fieldset>
+
+             <input class="button" type="submit" name="enregistrer" value="Enregistrer">   
+        </form>
+
+        <div id="indication">
+            <p id="indicationText"> </p>
+        </div>
+        
+        
+        <script type="text/javascript">
+
+            var message = <%-messages%>;
+            var users = <%-users%>;
+            var userActuel = <%-userActuel%>;
+            
+
+        </script>
+
+        <script type="text/javascript" src="/js/comptes.js"></script>
+       
+
+      
+    </body>
+
+</html>

@@ -1,0 +1,488 @@
+/*La mise en page*/
+html
+{
+	width: 100%;
+	height: 94%;
+}
+
+body
+{
+	width: 99%;
+	height: 100%;
+
+	background-image: url('/images/robot03.jpg');
+	background-size: 100%;
+}
+
+/****La mise en page de la video***/
+#video
+{
+	width : 100%;
+	height: 60%;
+	display: flex;
+}
+
+.video
+{
+	max-width: 90%;
+	height: 100%;
+	display: flex;
+}
+
+.videoTitre
+{
+	max-width: 100%;
+	height: 100%;	
+}
+
+video{
+	max-width: 100%;
+	height: 90%;
+}
+
+h2
+{
+	text-align: center;
+	height: 10%;
+
+	color: white;
+	margin: 0 0 0 0;
+}
+
+/*****Information sur l'etat du robot******/
+#infoRobot
+{
+	max-width: 90%;
+	min-width: 15%;
+	min-height: 100%;
+
+	background-image: url('/images/robot01.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+h1
+{
+	text-align: center;
+	font-family: Helvetica;
+	text-align: center;
+	color: white;
+}
+
+#infoCon
+{
+	font-family: Consolas;
+	font-size: 100%;
+	text-align: center;
+
+	color: white;
+    background-color: #ad1e1e;
+
+	border-color: #7F7F7F;
+	border-radius: 10px;
+}
+
+#infManip
+{
+	font-family: Consolas;
+	font-size: 100%;
+	text-align: center;
+
+	color: white;
+    background-color: olive;
+
+	border-color: #7F7F7F;
+	border-radius: 10px;
+}
+
+#infCommande
+{
+	font-family: Consolas;
+	font-size: 100%;
+	text-align: center;
+
+	color: white;
+    background-color: olive;
+
+	border-color: #7F7F7F;
+	border-radius: 10px;
+}
+
+#infItin
+{
+	font-family: Consolas;
+	font-size: 100%;
+	text-align: center;
+
+	color: white;
+    background-color: olive;
+
+	border-color: #7F7F7F;
+	border-radius: 10px;
+}
+
+p
+{
+	width: 90%;
+}
+
+
+
+/******La partie des boutons*****/
+#button
+{
+	
+	display: flex;
+	justify-content: center;
+
+	margin-top: 2%;
+
+}
+
+button
+{
+	height: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+	width: 200px;
+}
+
+#connection
+{
+	background-color: #008000;
+	border-style: none;
+	color: white;
+
+	border-radius: 6px 6px 6px 6px;
+	box-shadow: 6px 6px 6px #00800080;
+}
+#connection:hover
+{
+	box-shadow: 6px 6px 6px 6px #00800080;
+}
+#connection:active
+{
+	box-shadow: 6px 6px 6px 6px #008000;	
+}
+
+#controler
+{
+	background-color: #088055;
+	border-style: none;
+	color: white;
+
+	border-radius: 6px 6px 6px 6px;
+	box-shadow: 6px 6px 6px #088040;
+
+}
+#controler:hover
+{
+	box-shadow: 6px 6px 6px 3px #088040;
+}
+#controler:active
+{
+	box-shadow: 6px 6px 6px 6px #088055;
+}
+
+#finControle
+{
+	background-color: #B22222;
+	border-style: none;
+	color: white;
+
+	border-radius: 6px 6px 6px 6px;
+	box-shadow: 6px 6px 6px #B2222280;
+}
+#finControle:hover
+{
+	box-shadow: 6px 6px 6px 6px #B2222280;
+}
+#finControle:active
+{
+	box-shadow: 6px 6px 6px 6px #B22222;
+}
+
+#deconnecter
+{
+	background-color: #8B0000;
+	border-style: none;
+	color: white;
+
+	border-radius: 6px 6px 6px 6px;
+	box-shadow: 6px 6px 6px #8B000080;
+}
+#deconnecter:hover
+{
+	box-shadow: 6px 6px 6px 6px #8B000080;
+}
+#deconnecter:active
+{
+	box-shadow: 6px 6px 6px 6px #8B0000;
+}
+
+/*****La barre de navigation *****/
+nav
+{
+	
+	display: flex;
+	justify-content: space-between;
+	width : 600px;
+}
+
+nav button
+{
+	background-color: #7A2048;
+	color: white;
+	font-weight: bold;
+	font-size: 17px;
+
+	border-color: #7A2048;
+	border-radius: 25px 25px 25px 25px;
+}
+
+nav button:hover
+{
+
+	box-shadow: 6px 6px 6px #666666;
+}
+
+
+
+/*****La parter manipulation******/
+#manipulation
+{
+	display: flex;
+	height: 50%;
+	
+	width: 100%;
+
+	overflow: hidden;
+
+	color: white;
+	
+}
+
+#option
+{	
+	width: 80%;
+	height: 90%;
+
+	box-shadow: 6px 6px 6px #666666;
+
+	margin-left: 9px;
+	margin-right: 9px;
+	margin-top: 9px;
+	margin-bottom: 9px;
+
+	border-top: 4px solid #7A2048;
+	border-left: 4px solid #7A2048;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+#table
+{
+	height: 69%;
+	width: 99%;	
+	border-collapse: collapse;
+	margin: 0% 1% 1% 1%;
+	overflow: scroll;
+}
+
+table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+
+tr
+{
+	height: 25px;
+}
+
+tr:hover
+{
+	background-color: #7F7F7F;
+}
+
+
+th, td, table{
+	border-style: solid;
+	text-align: center;
+}
+
+th
+{
+	color: white;
+	background-color: black;
+}
+tr
+{
+	background-color: cadetblue;
+}
+
+#enregistrer, #supprimer,#lancer, #arreter 
+{
+	height: 30px;
+
+	
+	border-style: none;
+	color: white;
+
+	border-radius: 6px 6px 6px 6px;
+	
+
+	/*Text*/
+	font-size: 12px;
+	
+
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#enregistrer
+{
+	background-color: #052c05;
+	box-shadow: 6px 6px 6px #052c0580;
+}
+
+#enregistrer:hover
+{
+	box-shadow: 6px 6px 6px 6px #052c0580;
+}
+
+#supprimer
+{
+	background-color: #500606;
+	box-shadow: 6px 6px 6px #50060680;
+}
+#supprimer:hover
+{
+	box-shadow: 6px 6px 6px 6px #50060680;
+}
+
+#lancer{
+	background-color: #1d4903;
+	box-shadow: 6px 6px 6px #1d490380;
+}
+#lancer:hover
+{
+	box-shadow: 6px 6px 6px 6px #1d490380;
+}
+
+#arreter
+{
+	background-color: #290202;
+	box-shadow: 6px 6px 6px #29020280;
+}
+#arreter:hover
+{
+	box-shadow: 6px 6px 6px 6px #29020280;
+}
+
+#buttonManip
+{	
+
+	width: 25%;
+	height: 70%;
+
+	box-shadow: 6px 6px 6px #666666;
+	margin-top: 9px;
+	margin-bottom: 9px;
+
+	border-top: 4px solid #7A2048;
+	border-left: 4px solid #7A2048;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	align-items: center;
+	
+}
+#gaucheDroit
+{
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+	justify-content: center;
+
+	margin: 0 0 0 0;
+}
+img
+{
+	height: 100%;
+	width: 100%;
+}
+
+#top
+{
+	width: 80px;
+	height: 30px;
+	
+	margin-left: 35%;
+	margin-top: 10%;
+	margin-bottom: 0;
+}
+
+#left
+{
+	width: 80px;
+	height: 30px;
+	margin: 0 0 0 0;	
+}
+
+#right
+{
+	
+	width: 80px;
+	height: 30px;
+
+	margin: 0 0 0 0;
+	
+}
+#bas
+{
+	width: 80px;
+	height: 30px;
+	margin-right: 30%;
+	margin-left: 35%;
+
+	margin-top: 0;
+}
+
+#stop
+{
+	margin-top: 5%;
+
+	border: 0;
+	border-radius: 20px;
+	color: white;
+	background-color: #290202;
+	box-shadow: 6px 6px 6px #29020280;
+}
+
+#stop:hover
+{
+	box-shadow: 6px 6px 6px 6px #29020280;
+}
+
+#vitesse
+{
+	width: 45%;
+
+	text-align: center;
+	margin-left: 2px;
+}
+

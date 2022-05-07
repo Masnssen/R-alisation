@@ -1,0 +1,3 @@
+//MO008-009.TXT ANA00008 TO ANA00009
+Statistique		TAR	72	nouvelle taille enregistrement : 72
+Statistique	NbAbandon	RUB+		NbAbandon est une nouvelle rubrique

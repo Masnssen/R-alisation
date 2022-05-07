@@ -1,0 +1,4 @@
+//MO003-004.TXT ANA00003 TO ANA00004
+Patient		TAR	176	nouvelle taille enregistrement : 176
+Patient		IDE+*		fichier avec identifiant
+Patient	IDPatient	CNW	Identifiant automatique (4 octets)$Chaîne	la rubrique IDPatient a pour nouveau type Identifiant automatique (4 oct

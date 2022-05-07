@@ -1,0 +1,5 @@
+user : syphax       mots de passe : barache     service : vendeur
+user : massinissa   mots de passe : tighilt     service : pharmacien
+user : aimad        mots de passe : aimad       service : commercial
+user : souad        mots de passe : souad       service : pharmacien
+user : lynda        mots de passe : lynda       service : Administrateur

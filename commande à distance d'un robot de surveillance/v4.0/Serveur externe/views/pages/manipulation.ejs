@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/manipulation.css">
+		<meta charset="utf-8">
+		<title>Manipulation</title>
+
+	</head>
+	<body>
+
+		<nav>
+            <a id='principale'><button id="princ">Accueil</button></a>
+            <a id='deconnection' href="/"><button id="princ">Déconnexion</button></a>
+        </nav>
+
+		<section id="video">
+
+			<div class="video">
+				<div class="videoTitre">
+					<h2>vidéo avant</h2>
+					<video id="vidCamera" autoplay="true">Camera avant</video>
+				</div>
+				<div class="videoTitre">
+					<h2>vidéo arriere</h2>
+					<video id="vidArr" autoplay="true">Camera arriere</video>
+				</div>
+			</div>
+
+			<section id="infoRobot">
+				<h1>Information sur l'état du robot</h1>
+				<p id="infoCon"></p>
+				<p id="infManip"></p>
+				<p id="infCommande"></p>
+				<p id="infItin"></p>
+
+			</section>
+		</section>
+
+		<section id="button">
+			
+			<button id="connection">Connexion</button>
+			<button id="controler">Contrôle le robot</button>
+			<button id="finControle">Fin contrôle</button>
+			<button id="deconnecter">Déconnexion</button>
+		</section>
+
+		<section id="manipulation">
+
+			<section id="buttonManip">
+				<label for="vitesse"> Vitesse : <input type="number" name="vitesse" id="vitesse" range value="0.1"></label>
+				<div>
+					<label for="prudance">Prudence :</label>
+					<input type="checkbox" id="prudance" name="prudance" checked>
+				  </div>
+				
+				
+				<button id="top" accesskey="w"><img src="/images/haut.png"></button>
+				<div id="gaucheDroit">
+					<button id="left" accesskey="a"><img src="/images/gauche.png"></button>
+					<button id="right" accesskey="d"><img src="/images/droite.png" alt=""></button>
+				</div>
+				<button id="bas" accesskey="s"><img src="/images/bas.png" alt=""></button>
+
+				<button id="stop">Stop</button>
+			</section>
+			
+			<section id="option">
+				<button id="enregistrer">Enregistrer itinéraire</button>
+				<button id="supprimer">Supprimer itinéraire</button>
+				
+				<div id="table">
+					<table id="listeIteneraire">
+						<tr>
+							<th width = '30%' >Nom itinéraire</th>
+							<th>Description itinéraire</th>
+							<th width = '10%'>Boucle</th>
+						</tr>
+					</table>
+				</div>
+				<button id="lancer">Lancer itinéraire</button>
+				<button id="arreter">Arreter itinéraire</button>
+				
+			</section>
+
+		</section>
+		
+		
+
+		<script type="text/javascript">
+			const userId = <%-id%>;
+			const type = <%-type%>;
+		</script>
+
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/js/manipulation.js"></script>
+		<script type="text/javascript" src="/js/simplepeer.min.js"></script>
+			
+	</body>
+</html>
